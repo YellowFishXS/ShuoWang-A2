@@ -1,15 +1,22 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class Ride implements RideInterface {
     private Employee operator; 
     private boolean rideStatus;
     private int rideSize;
     private String rideName;
 
+    private Queue<Visitor> waitingLine;
+    private LinkedList<Visitor> rideHistory;
 
     public Ride() {
         this.operator = new Employee(); // default Employee object
         this.rideStatus = false;
         this.rideSize = 0;
         this.rideName ="";
+        this.waitingLine = new LinkedList<>();
+        this.rideHistory = new LinkedList<>();
     }
 
     public Ride( Employee operator, boolean rideStatus, int rideSize, String rideName) {
@@ -50,7 +57,7 @@ public class Ride implements RideInterface {
     public void setRideName(String rideName) {
         this.rideName = rideName;
     }
-    
+
   
 
 
