@@ -1,18 +1,29 @@
-public class Ride {
+public class Ride implements RideInterface {
     private Employee operator; 
     private boolean rideStatus;
     private int rideSize;
+    private String rideName;
 
 
     public Ride() {
+        this.operator = new Employee(); // default Employee object
         this.rideStatus = false;
         this.rideSize = 0;
-        this.operator = new Employee(); // default Employee object
+        this.rideName ="";
     }
 
-    public Ride(boolean rideStatus, int rideSize, Employee operator) {
+    public Ride( Employee operator, boolean rideStatus, int rideSize, String rideName) {
         this.rideStatus = rideStatus;
         this.rideSize = rideSize;
+        this.operator = operator;
+        this.rideName = rideName;
+    }
+
+      public Employee getOperator() {
+        return operator;
+    }
+
+    public void setOperator(Employee operator) {
         this.operator = operator;
     }
 
@@ -32,11 +43,15 @@ public class Ride {
         this.rideSize = rideSize;
     }
 
-    public Employee getOperator() {
-        return operator;
+    public String getRideName() {
+        return rideName;
     }
 
-    public void setOperator(Employee operator) {
-        this.operator = operator;
+    public void setRideName(String rideName) {
+        this.rideName = rideName;
     }
+    
+  
+
+
 }
