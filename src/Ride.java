@@ -80,6 +80,20 @@ public class Ride implements RideInterface {
         }
     }
 
+    @Override
+    public void printQueue() {
+        if (waitingLine.isEmpty()) {
+            System.out.println(rideName + " waiting que is null.");
+            return;
+        }
+        
+        System.out.println("=== " + rideName + " Waiting Queue ===");
+        int position = 1;
+        for (Visitor visitor : waitingLine) {
+            System.out.println(position + ". " + visitor.getName() + ", Ticktype: " + visitor.getTicketType());
+            position++;
+        }
+    }
 
 
 
