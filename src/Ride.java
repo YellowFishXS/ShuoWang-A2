@@ -64,11 +64,23 @@ public class Ride implements RideInterface {
     public void addVisitorToQueue(Visitor visitor) {
         if (visitor != null) {
             waitingLine.add(visitor);
-            System.out.println("visitor " + visitor.getName() + " joined to " + rideName + " waiting line");
+            System.out.println("visitor " + visitor.getName() + " joined to " + rideName + " waiting line.");
         } else {
             System.out.println("ERR: visitor object is null");
         }
     }
+
+    @Override
+    public void removeVisitorFromQueue() {
+        if (!waitingLine.isEmpty()) {
+            Visitor removedVisitor = waitingLine.poll();
+            System.out.println("visitor " + removedVisitor.getName() + " remove form " + rideName + " waiting line.");
+        } else {
+            System.out.println("ERR:waiting que is null.");
+        }
+    }
+
+
 
 
 }
