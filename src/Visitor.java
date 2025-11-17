@@ -10,7 +10,7 @@ public class Visitor extends Person {
         this.ticketType = "Standard";
     }
 
-    public Visitor(String name, int age, String sex, String travelGroup , String ticketType) {
+    public Visitor(String name, String sex, int age, String travelGroup , String ticketType) {
         super(name, sex, age); // 调用父类带参数构造器
         this.travelGroup  = travelGroup ;
         this.ticketType = ticketType;
