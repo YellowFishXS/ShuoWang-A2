@@ -96,21 +96,32 @@ public class Ride implements RideInterface {
     }
 
     @Override
-    public void addVisitorToHistory(Visitor visitor) {
-        // TODO Auto-generated method stub
+        public void addVisitorToHistory(Visitor visitor) {
+        if (visitor == null) {
+            System.out.println("ERR: Visitor is null. Cannot be added to the history.");
+            return;
+        }
         
+        rideHistory.add(visitor);
+        System.out.println(visitor.getName() + " is added to the " + rideName + " history");
     }
 
     @Override
     public boolean checkVisitorFromHistory(Visitor visitor) {
-        // TODO Auto-generated method stub
-        return false;
+        if(visitor == null){
+            System.out.println("ERR: Visitor is null.Cannot be checked from the history.");
+            return false;
+        }
+        boolean found = rideHistory.contains(visitor);
+        System.out.println("Whether "+visitor.getName() + "in the historical record: " + (found ? "yes" : "no"));
+        return found;
     }
 
     @Override
-    public int numberOfVisitors() {
-        // TODO Auto-generated method stub
-        return 0;
+     public int numberOfVisitors() {
+        int count = rideHistory.size();
+        System.out.println(" The number of Visitors in the"+ rideName +  "ride history: " + count );
+        return count;
     }
 
     @Override
@@ -124,7 +135,7 @@ public class Ride implements RideInterface {
         // TODO Auto-generated method stub
         
     }
-    
+
 
 
 }
