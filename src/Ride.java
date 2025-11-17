@@ -95,6 +95,36 @@ public class Ride implements RideInterface {
         }
     }
 
+    @Override
+    public void addVisitorToHistory(Visitor visitor) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public boolean checkVisitorFromHistory(Visitor visitor) {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public int numberOfVisitors() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public void printRideHistory() {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void runOneCycle() {
+        // TODO Auto-generated method stub
+        
+    }
+    
 
 
 }
