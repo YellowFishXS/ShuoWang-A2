@@ -1,8 +1,9 @@
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Iterator;
 
 public class Ride implements RideInterface {
-    private Employee operator; 
+    private Employee operator;
     private boolean rideStatus;
     private int rideSize;
     private String rideName;
@@ -14,12 +15,12 @@ public class Ride implements RideInterface {
         this.operator = new Employee(); // default Employee object
         this.rideStatus = false;
         this.rideSize = 0;
-        this.rideName ="";
+        this.rideName = "";
         this.waitingLine = new LinkedList<>();
         this.rideHistory = new LinkedList<>();
     }
 
-    public Ride( Employee operator, boolean rideStatus, int rideSize, String rideName) {
+    public Ride(Employee operator, boolean rideStatus, int rideSize, String rideName) {
         this.rideStatus = rideStatus;
         this.rideSize = rideSize;
         this.operator = operator;
@@ -28,7 +29,7 @@ public class Ride implements RideInterface {
         this.rideHistory = new LinkedList<>();
     }
 
-      public Employee getOperator() {
+    public Employee getOperator() {
         return operator;
     }
 
@@ -86,7 +87,7 @@ public class Ride implements RideInterface {
             System.out.println(rideName + " waiting que is null.");
             return;
         }
-        
+
         System.out.println("=== " + rideName + " Waiting Queue ===");
         int position = 1;
         for (Visitor visitor : waitingLine) {
@@ -96,46 +97,61 @@ public class Ride implements RideInterface {
     }
 
     @Override
-        public void addVisitorToHistory(Visitor visitor) {
+    public void addVisitorToHistory(Visitor visitor) {
         if (visitor == null) {
             System.out.println("ERR: Visitor is null. Cannot be added to the history.");
             return;
         }
-        
+
         rideHistory.add(visitor);
         System.out.println(visitor.getName() + " is added to the " + rideName + " history");
     }
 
     @Override
     public boolean checkVisitorFromHistory(Visitor visitor) {
-        if(visitor == null){
+        if (visitor == null) {
             System.out.println("ERR: Visitor is null.Cannot be checked from the history.");
             return false;
         }
         boolean found = rideHistory.contains(visitor);
-        System.out.println("Whether "+visitor.getName() + "in the historical record: " + (found ? "yes" : "no"));
+        System.out.println("Whether " + visitor.getName() + "in the historical record: " + (found ? "yes" : "no"));
         return found;
     }
 
     @Override
-     public int numberOfVisitors() {
-        int count = rideHistory.size();
-        System.out.println(" The number of Visitors in the"+ rideName +  "ride history: " + count );
-        return count;
+    public int numberOfVisitors() {
+        int num = rideHistory.size();
+        System.out.println(" The number of Visitors in the" + rideName + "ride history: " + num);
+        return num;
     }
 
     @Override
     public void printRideHistory() {
-        // TODO Auto-generated method stub
-        
+        System.out.println("=== " + rideName + " ride history ===");
+        System.out.println("Total visitor: " + rideHistory.size());
+
+        if (rideHistory.isEmpty()) {
+            System.out.println(rideName + " ride history is empty");
+            return;
+        }
+
+        System.out.println("Visitors List:");
+        Iterator<Visitor> iterator = rideHistory.iterator();
+
+        int num = 1;
+        while (iterator.hasNext()) {
+            Visitor visitor = iterator.next();
+            System.out.println(num + ". " + visitor.getName() + ":");
+            System.out.println("Sex: " + visitor.getSex() + ", Age:" + visitor.getAge() + ", Ticket Type:"
+                    + visitor.getTicketType() + ", Travel Group: " + visitor.gettravelGroup());
+            num++;
+        }
     }
 
     @Override
     public void runOneCycle() {
         // TODO Auto-generated method stub
-        
+
     }
-
-
 
 }
