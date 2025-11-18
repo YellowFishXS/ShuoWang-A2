@@ -118,6 +118,13 @@ public class Ride implements RideInterface {
     }
 
     @Override
+     public int numberOfVisitors() {
+        int count = rideHistory.size();
+        System.out.println(" The number of Visitors in the"+ rideName +  "ride history: " + count );
+        return count;
+    }
+
+    @Override
     public void printRideHistory() {
         // TODO Auto-generated method stub
         
