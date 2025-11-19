@@ -121,7 +121,7 @@ public class Ride implements RideInterface {
     @Override
     public int numberOfVisitors() {
         int num = rideHistory.size();
-        System.out.println(" The number of Visitors in the" + rideName + "ride history: " + num);
+        System.out.println(" The number of Visitors in the " + rideName + " ride history: " + num);
         return num;
     }
 
