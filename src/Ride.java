@@ -1,5 +1,7 @@
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 
 public class Ride implements RideInterface {
@@ -147,6 +149,22 @@ public class Ride implements RideInterface {
             num++;
         }
     }
+
+    public void sortRideHistory(Comparator<Visitor> comparator) {
+        if (rideHistory.isEmpty()) {
+            System.out.println("Ride history is null.");
+            return;
+        }
+        
+        System.out.println("Sorting ride history: " + rideName);
+        VisitorComparator visitorComparator = new VisitorComparator();
+        Collections.sort(rideHistory, visitorComparator);
+    }
+
+
+
+
+
 
     @Override
     public void runOneCycle() {

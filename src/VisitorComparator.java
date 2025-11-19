@@ -14,8 +14,5 @@ public class VisitorComparator implements Comparator<Visitor> {
         //sort by age, ascending
         return visitor1.getName().compareTo(visitor2.getName());
     }
-
-
-
     
 }
