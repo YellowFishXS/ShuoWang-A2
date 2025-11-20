@@ -4,7 +4,8 @@ public class AssignmentTwo {
 
         AssignmentTwo assignmentTwo = new AssignmentTwo();
         // assignmentTwo.partThree();
-        assignmentTwo.partFourA();
+        //assignmentTwo.partFourA();
+        assignmentTwo.partFourB();
     }
 
     public void partThree() {
@@ -75,6 +76,35 @@ public class AssignmentTwo {
     }
 
     public void partFourB() {
+        Employee operator = new Employee("Wangwu", 39, "male", "003", "Ride Operator");
+
+        Ride rollerCoaster2 = new Ride(operator, true, 3, "Thunder Storm");
+        System.out.println("create " + rollerCoaster2.getRideName() + " success.");
+
+        Visitor jack = new Visitor("Jack", "male", 25, "independent", "Adult");
+        Visitor leo = new Visitor("Leo", "female", 22, "CITS", "Student");
+        Visitor nehemia = new Visitor("Nehemia", "female", 30, "WOT", "Adult");
+        Visitor jason = new Visitor("Jason", "male", 28, "MT", "VIP");
+        Visitor sharon = new Visitor("Sharon", "male", 26, "CITS", "Adult");
+        Visitor benny = new Visitor("Benny", "female", 24, "independent", "Student");
+
+        rollerCoaster2.addVisitorToHistory(jack);
+        rollerCoaster2.addVisitorToHistory(leo);
+        rollerCoaster2.addVisitorToHistory(nehemia);
+        rollerCoaster2.addVisitorToHistory(jason);
+        rollerCoaster2.addVisitorToHistory(sharon);
+        rollerCoaster2.addVisitorToHistory(benny);
+        System.out.println("add visitors to collection finish.");
+
+        //for split
+        System.out.println();
+        rollerCoaster2.printRideHistory();
+        System.out.println();
+        VisitorComparator visitorComparator = new VisitorComparator();
+        rollerCoaster2.sortRideHistory(visitorComparator);
+        //print again
+        rollerCoaster2.printRideHistory();
+        
     }
 
     public void partFive() {
