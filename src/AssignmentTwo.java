@@ -5,7 +5,8 @@ public class AssignmentTwo {
         AssignmentTwo assignmentTwo = new AssignmentTwo();
         // assignmentTwo.partThree();
         //assignmentTwo.partFourA();
-        assignmentTwo.partFourB();
+        // assignmentTwo.partFourB();
+        assignmentTwo.partFive();
     }
 
     public void partThree() {
@@ -108,6 +109,47 @@ public class AssignmentTwo {
     }
 
     public void partFive() {
+        Employee operator = new Employee("Zhaoliu", 41, "female", "004", "Ride Operator");
+
+        Ride rollerCoaster3 = new Ride(operator, true,"Thunder Storm", 4);
+        System.out.println("create " + rollerCoaster3.getRideName() + " success. Max Rider:" + rollerCoaster3.getmaxRider());
+
+        Visitor jack = new Visitor("Jack", "male", 25, "independent", "Adult");
+        Visitor leo = new Visitor("Leo", "female", 22, "CITS", "Student");
+        Visitor nehemia = new Visitor("Nehemia", "female", 30, "WOT", "Adult");
+        Visitor jason = new Visitor("Jason", "male", 28, "MT", "VIP");
+        Visitor sharon = new Visitor("Sharon", "male", 26, "CITS", "Adult");
+        Visitor benny = new Visitor("Benny", "female", 24, "independent", "Student");
+        Visitor visitor7 = new Visitor("visitor7", "male", 25, "independent", "Adult");
+        Visitor visitor8 = new Visitor("visitor8", "female", 22, "CITS", "Student");
+        Visitor visitor9 = new Visitor("visitor9", "female", 30, "WOT", "Adult");
+        Visitor visitor10 = new Visitor("visitor10", "male", 28, "MT", "VIP");
+        Visitor visitor11 = new Visitor("visitor11", "male", 26, "CITS", "Adult");
+        Visitor visitor12 = new Visitor("visitor12", "female", 24, "independent", "Student");
+
+        rollerCoaster3.addVisitorToQueue(jack);
+        rollerCoaster3.addVisitorToQueue(leo);
+        rollerCoaster3.addVisitorToQueue(nehemia);
+        rollerCoaster3.addVisitorToQueue(jason);
+        rollerCoaster3.addVisitorToQueue(sharon);
+        rollerCoaster3.addVisitorToQueue(benny);
+        rollerCoaster3.addVisitorToQueue(visitor7);
+        rollerCoaster3.addVisitorToQueue(visitor8);
+        rollerCoaster3.addVisitorToQueue(visitor9);
+        rollerCoaster3.addVisitorToQueue(visitor10);
+        rollerCoaster3.addVisitorToQueue(visitor11);
+        rollerCoaster3.addVisitorToQueue(visitor12);
+        System.out.println("add visitors to Queue finish.");
+
+        System.out.println();
+        rollerCoaster3.runOneCycle();
+
+        System.out.println();
+        rollerCoaster3.printQueue();
+
+        System.out.println();
+        rollerCoaster3.printRideHistory();
+
         
     }
 
