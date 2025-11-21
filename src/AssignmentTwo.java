@@ -11,7 +11,7 @@ public class AssignmentTwo {
     public void partThree() {
         Employee operator = new Employee("zhangsan", 45, "male", "001", "Ride Operator");
 
-        Ride rollerCoaster = new Ride(operator, true, 2, "roller coaster");
+        Ride rollerCoaster = new Ride(operator, true,  "roller coaster",2);
         System.out.println("create " + rollerCoaster.getRideName() + " success.");
 
         Visitor jack = new Visitor("Jack", "male", 25, "independent", "Adult");
@@ -47,7 +47,7 @@ public class AssignmentTwo {
     public void partFourA() {
         Employee operator = new Employee("Lisi", 36, "female", "002", "Ride Operator");
 
-        Ride rollerCoaster1 = new Ride(operator, true, 3, "roller coaster");
+        Ride rollerCoaster1 = new Ride(operator, true,"roller coaster", 3);
         System.out.println("create " + rollerCoaster1.getRideName() + " success.");
 
         Visitor jack = new Visitor("Jack", "male", 25, "independent", "Adult");
@@ -78,7 +78,7 @@ public class AssignmentTwo {
     public void partFourB() {
         Employee operator = new Employee("Wangwu", 39, "male", "003", "Ride Operator");
 
-        Ride rollerCoaster2 = new Ride(operator, true, 3, "Thunder Storm");
+        Ride rollerCoaster2 = new Ride(operator, true,"Thunder Storm", 3);
         System.out.println("create " + rollerCoaster2.getRideName() + " success.");
 
         Visitor jack = new Visitor("Jack", "male", 25, "independent", "Adult");
@@ -108,6 +108,7 @@ public class AssignmentTwo {
     }
 
     public void partFive() {
+        
     }
 
     public void partSix() {

@@ -7,8 +7,9 @@ import java.util.Iterator;
 public class Ride implements RideInterface {
     private Employee operator;
     private boolean rideStatus;
-    private int rideSize;
     private String rideName;
+    private int maxRider;
+    private int numOfCycle = 0;
 
     private Queue<Visitor> waitingLine;
     private LinkedList<Visitor> rideHistory;
@@ -16,19 +17,21 @@ public class Ride implements RideInterface {
     public Ride() {
         this.operator = new Employee(); // default Employee object
         this.rideStatus = false;
-        this.rideSize = 0;
         this.rideName = "";
         this.waitingLine = new LinkedList<>();
         this.rideHistory = new LinkedList<>();
+        this.maxRider = 1; // at least 1 visitor
+        this.numOfCycle = 0;
     }
 
-    public Ride(Employee operator, boolean rideStatus, int rideSize, String rideName) {
+    public Ride(Employee operator, boolean rideStatus, String rideName, int maxRider) {
         this.rideStatus = rideStatus;
-        this.rideSize = rideSize;
         this.operator = operator;
         this.rideName = rideName;
         this.waitingLine = new LinkedList<>();
         this.rideHistory = new LinkedList<>();
+        this.maxRider = maxRider;
+        this.numOfCycle = 0; // default 0
     }
 
     public Employee getOperator() {
@@ -47,12 +50,12 @@ public class Ride implements RideInterface {
         this.rideStatus = rideStatus;
     }
 
-    public int getRideSize() {
-        return rideSize;
+    public int getmaxRider() {
+        return maxRider;
     }
 
-    public void setRideSize(int rideSize) {
-        this.rideSize = rideSize;
+    public void setmaxRider(int maxRider) {
+        this.maxRider = maxRider;
     }
 
     public String getRideName() {
@@ -155,20 +158,37 @@ public class Ride implements RideInterface {
             System.out.println("Ride history is null.");
             return;
         }
-        
+
         System.out.println("Sorting ride history: " + rideName);
         VisitorComparator visitorComparator = new VisitorComparator();
         Collections.sort(rideHistory, visitorComparator);
     }
 
-
-
-
-
-
     @Override
     public void runOneCycle() {
-        // TODO Auto-generated method stub
+        //ride status is false or no operator
+        if (!rideStatus || rideName == null) {
+            System.out.println("The ride cannot be run.");
+        }
+        if (waitingLine.isEmpty()) {
+            System.out.println("Waiting Line is empty. Cannot run ride cycle");
+            return;
+        }
+
+      
+
+        //if waiting line < maxRider, all visitor can put in history
+        int rideCycle = Math.min(maxRider, waitingLine.size());
+        for (int i = 0; i < rideCycle; i++) {
+            Visitor visitor = waitingLine.poll(); // remove from queue
+            if (visitor != null) {
+                rideHistory.add(visitor); // add to history
+                System.out.println("Visitor " + visitor.getName() + " has taken the ride.");
+            }
+        }
+
+        numOfCycle++;
+        System.out.println("Ride cycle completed. Total cycles: " + numOfCycle);
 
     }
 
