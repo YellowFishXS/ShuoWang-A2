@@ -138,7 +138,7 @@ public class Ride implements RideInterface {
         System.out.println("Total visitor: " + rideHistory.size());
 
         if (rideHistory.isEmpty()) {
-            System.out.println("ERR: "+rideName + " ride history is empty");
+            System.out.println("ERR:"+rideName + " ride history is empty");
             return;
         }
 
@@ -157,7 +157,7 @@ public class Ride implements RideInterface {
 
     public void sortRideHistory(Comparator<Visitor> comparator) {
         if (rideHistory.isEmpty()) {
-            System.out.println("Ride history is null.");
+            System.out.println("ERR: Ride history is null.");
             return;
         }
 

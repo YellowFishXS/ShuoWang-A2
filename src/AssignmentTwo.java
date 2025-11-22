@@ -6,7 +6,8 @@ public class AssignmentTwo {
         // assignmentTwo.partThree();
         //assignmentTwo.partFourA();
         // assignmentTwo.partFourB();
-        assignmentTwo.partFive();
+        // assignmentTwo.partFive();
+        assignmentTwo.partSix();
     }
 
     public void partThree() {
@@ -79,7 +80,84 @@ public class AssignmentTwo {
     public void partFourB() {
         Employee operator = new Employee("Wangwu", 39, "male", "003", "Ride Operator");
 
-        Ride rollerCoaster2 = new Ride(operator, true,"Thunder Storm", 3);
+        Ride thunderStorm1 = new Ride(operator, true,"Thunder Storm", 3);
+        System.out.println("create " + thunderStorm1.getRideName() + " success.");
+
+        Visitor jack = new Visitor("Jack", "male", 25, "independent", "Adult");
+        Visitor leo = new Visitor("Leo", "female", 22, "CITS", "Student");
+        Visitor nehemia = new Visitor("Nehemia", "female", 30, "WOT", "Adult");
+        Visitor jason = new Visitor("Jason", "male", 28, "MT", "VIP");
+        Visitor sharon = new Visitor("Sharon", "male", 26, "CITS", "Adult");
+        Visitor benny = new Visitor("Benny", "female", 24, "independent", "Student");
+
+        thunderStorm1.addVisitorToHistory(jack);
+        thunderStorm1.addVisitorToHistory(leo);
+        thunderStorm1.addVisitorToHistory(nehemia);
+        thunderStorm1.addVisitorToHistory(jason);
+        thunderStorm1.addVisitorToHistory(sharon);
+        thunderStorm1.addVisitorToHistory(benny);
+        System.out.println("add visitors to collection finish.");
+
+        //for split
+        System.out.println();
+        thunderStorm1.printRideHistory();
+        System.out.println();
+        VisitorComparator visitorComparator = new VisitorComparator();
+        thunderStorm1.sortRideHistory(visitorComparator);
+        //print again
+        thunderStorm1.printRideHistory();
+        
+    }
+
+    public void partFive() {
+        Employee operator = new Employee("Zhaoliu", 41, "female", "004", "Ride Operator");
+
+        Ride thunderStorm2 = new Ride(operator, true,"Thunder Storm", 4);
+        System.out.println("create " + thunderStorm2.getRideName() + " success. Max Rider:" + thunderStorm2.getmaxRider());
+
+        Visitor jack = new Visitor("Jack", "male", 25, "independent", "Adult");
+        Visitor leo = new Visitor("Leo", "female", 22, "CITS", "Student");
+        Visitor nehemia = new Visitor("Nehemia", "female", 30, "WOT", "Adult");
+        Visitor jason = new Visitor("Jason", "male", 28, "MT", "VIP");
+        Visitor sharon = new Visitor("Sharon", "male", 26, "CITS", "Adult");
+        Visitor benny = new Visitor("Benny", "female", 24, "independent", "Student");
+        Visitor visitor7 = new Visitor("visitor7", "male", 25, "independent", "Adult");
+        Visitor visitor8 = new Visitor("visitor8", "female", 22, "CITS", "Student");
+        Visitor visitor9 = new Visitor("visitor9", "female", 30, "WOT", "Adult");
+        Visitor visitor10 = new Visitor("visitor10", "male", 28, "MT", "VIP");
+        Visitor visitor11 = new Visitor("visitor11", "male", 26, "CITS", "Adult");
+        Visitor visitor12 = new Visitor("visitor12", "female", 24, "independent", "Student");
+
+        thunderStorm2.addVisitorToQueue(jack);
+        thunderStorm2.addVisitorToQueue(leo);
+        thunderStorm2.addVisitorToQueue(nehemia);
+        thunderStorm2.addVisitorToQueue(jason);
+        thunderStorm2.addVisitorToQueue(sharon);
+        thunderStorm2.addVisitorToQueue(benny);
+        thunderStorm2.addVisitorToQueue(visitor7);
+        thunderStorm2.addVisitorToQueue(visitor8);
+        thunderStorm2.addVisitorToQueue(visitor9);
+        thunderStorm2.addVisitorToQueue(visitor10);
+        thunderStorm2.addVisitorToQueue(visitor11);
+        thunderStorm2.addVisitorToQueue(visitor12);
+        System.out.println("add visitors to Queue finish.");
+
+        System.out.println();
+        thunderStorm2.runOneCycle();
+
+        System.out.println();
+        thunderStorm2.printQueue();
+
+        System.out.println();
+        thunderStorm2.printRideHistory();
+
+        
+    }
+
+    public void partSix() {
+        Employee operator = new Employee("Jacket", 48, "male", "005", "Ride Operator");
+
+        Ride rollerCoaster2 = new Ride(operator, true,"Roller Coaster", 3);
         System.out.println("create " + rollerCoaster2.getRideName() + " success.");
 
         Visitor jack = new Visitor("Jack", "male", 25, "independent", "Adult");
@@ -95,65 +173,15 @@ public class AssignmentTwo {
         rollerCoaster2.addVisitorToHistory(jason);
         rollerCoaster2.addVisitorToHistory(sharon);
         rollerCoaster2.addVisitorToHistory(benny);
-        System.out.println("add visitors to collection finish.");
+        System.out.println("add visitors to ride history finish.");
 
-        //for split
-        System.out.println();
-        rollerCoaster2.printRideHistory();
-        System.out.println();
-        VisitorComparator visitorComparator = new VisitorComparator();
-        rollerCoaster2.sortRideHistory(visitorComparator);
-        //print again
-        rollerCoaster2.printRideHistory();
-        
-    }
-
-    public void partFive() {
-        Employee operator = new Employee("Zhaoliu", 41, "female", "004", "Ride Operator");
-
-        Ride rollerCoaster3 = new Ride(operator, true,"Thunder Storm", 4);
-        System.out.println("create " + rollerCoaster3.getRideName() + " success. Max Rider:" + rollerCoaster3.getmaxRider());
-
-        Visitor jack = new Visitor("Jack", "male", 25, "independent", "Adult");
-        Visitor leo = new Visitor("Leo", "female", 22, "CITS", "Student");
-        Visitor nehemia = new Visitor("Nehemia", "female", 30, "WOT", "Adult");
-        Visitor jason = new Visitor("Jason", "male", 28, "MT", "VIP");
-        Visitor sharon = new Visitor("Sharon", "male", 26, "CITS", "Adult");
-        Visitor benny = new Visitor("Benny", "female", 24, "independent", "Student");
-        Visitor visitor7 = new Visitor("visitor7", "male", 25, "independent", "Adult");
-        Visitor visitor8 = new Visitor("visitor8", "female", 22, "CITS", "Student");
-        Visitor visitor9 = new Visitor("visitor9", "female", 30, "WOT", "Adult");
-        Visitor visitor10 = new Visitor("visitor10", "male", 28, "MT", "VIP");
-        Visitor visitor11 = new Visitor("visitor11", "male", 26, "CITS", "Adult");
-        Visitor visitor12 = new Visitor("visitor12", "female", 24, "independent", "Student");
-
-        rollerCoaster3.addVisitorToQueue(jack);
-        rollerCoaster3.addVisitorToQueue(leo);
-        rollerCoaster3.addVisitorToQueue(nehemia);
-        rollerCoaster3.addVisitorToQueue(jason);
-        rollerCoaster3.addVisitorToQueue(sharon);
-        rollerCoaster3.addVisitorToQueue(benny);
-        rollerCoaster3.addVisitorToQueue(visitor7);
-        rollerCoaster3.addVisitorToQueue(visitor8);
-        rollerCoaster3.addVisitorToQueue(visitor9);
-        rollerCoaster3.addVisitorToQueue(visitor10);
-        rollerCoaster3.addVisitorToQueue(visitor11);
-        rollerCoaster3.addVisitorToQueue(visitor12);
-        System.out.println("add visitors to Queue finish.");
+        System.out.println(); //for split
+        rollerCoaster2.printRideHistory(); //check
 
         System.out.println();
-        rollerCoaster3.runOneCycle();
+        //file name, e.g. ride_history_Roller Coaster.txt
+        rollerCoaster2.exportRideHistory("ride_history_"+rollerCoaster2.getRideName()+".txt");
 
-        System.out.println();
-        rollerCoaster3.printQueue();
-
-        System.out.println();
-        rollerCoaster3.printRideHistory();
-
-        
-    }
-
-    public void partSix() {
     }
 
     public void partSeven() {

@@ -1,0 +1,1 @@
+Jack,25,male,Adult,independent,Leo,22,female,Student,CITS,Nehemia,30,female,Adult,WOT,Jason,28,male,VIP,MT,Sharon,26,male,Adult,CITS,Benny,24,female,Student,independent,
