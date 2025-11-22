@@ -1,5 +1,7 @@
 import java.util.LinkedList;
 import java.util.Queue;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
@@ -136,7 +138,7 @@ public class Ride implements RideInterface {
         System.out.println("Total visitor: " + rideHistory.size());
 
         if (rideHistory.isEmpty()) {
-            System.out.println(rideName + " ride history is empty");
+            System.out.println("ERR: "+rideName + " ride history is empty");
             return;
         }
 
@@ -166,18 +168,16 @@ public class Ride implements RideInterface {
 
     @Override
     public void runOneCycle() {
-        //ride status is false or no operator
+        // ride status is false or no operator
         if (!rideStatus || rideName == null) {
-            System.out.println("The ride cannot be run.");
+            System.out.println("ERR: The ride cannot be run.");
         }
         if (waitingLine.isEmpty()) {
-            System.out.println("Waiting Line is empty. Cannot run ride cycle");
+            System.out.println("ERR: Waiting Line is empty. Cannot run ride cycle");
             return;
         }
 
-      
-
-        //if waiting line < maxRider, all visitor can put in history
+        // if waiting line < maxRider, all visitor can put in history
         int rideCycle = Math.min(maxRider, waitingLine.size());
         for (int i = 0; i < rideCycle; i++) {
             Visitor visitor = waitingLine.poll(); // remove from queue
@@ -190,6 +190,26 @@ public class Ride implements RideInterface {
         numOfCycle++;
         System.out.println("Ride cycle completed. Total cycles: " + numOfCycle);
 
+    }
+
+    public void exportRideHistory(String filename) {
+        try (FileWriter writer = new FileWriter(filename)) {
+            // one visitor one line
+            for (Visitor visitor : rideHistory) {
+                // five attribute
+                String line = visitor.getName() + "," 
+                            + visitor.getAge() + "," 
+                            + visitor.getSex() + ","
+                            + visitor.getTicketType() + ","
+                            + visitor.gettravelGroup() + ","
+                            ;
+                            // +"\n";
+                writer.write(line);
+            }
+            System.out.println("Ride history exported to " + filename);
+        } catch (IOException e) {
+            System.err.println("ERR: exporting ride history: " + e.getMessage());
+        }
     }
 
 }
