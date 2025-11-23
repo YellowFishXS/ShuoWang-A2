@@ -201,9 +201,8 @@ public class Ride implements RideInterface {
                             + visitor.getAge() + "," 
                             + visitor.getSex() + ","
                             + visitor.getTicketType() + ","
-                            + visitor.gettravelGroup() + ","
-                            ;
-                            // +"\n";
+                            + visitor.gettravelGroup() 
+                            +"\n";
                 writer.write(line);
             }
             System.out.println("Ride history exported to " + filename);
