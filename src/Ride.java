@@ -194,6 +194,11 @@ public class Ride implements RideInterface {
 
     public void exportRideHistory(String filename) {
         try (FileWriter writer = new FileWriter(filename)) {
+
+            //first line for title
+            String title = "VisitorName, Age, Sex, TicketType, TravelGroup\n";
+            writer.write(title);
+
             // one visitor one line
             for (Visitor visitor : rideHistory) {
                 // five attribute
