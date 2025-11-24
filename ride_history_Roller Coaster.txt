@@ -1,4 +1,5 @@
-VisitorName, Age, Sex, TicketType, TravelGroupJack,25,male,Adult,independent
+VisitorName, Age, Sex, TicketType, TravelGroup
+Jack,25,male,Adult,independent
 Leo,22,female,Student,CITS
 Nehemia,30,female,Adult,WOT
 Jason,28,male,VIP,MT
