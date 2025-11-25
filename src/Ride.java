@@ -247,10 +247,10 @@ public class Ride implements RideInterface {
                         rideHistory.add(visitor);
                         importedCount++;
                     } else {
-                        System.err.println("Invalid format in line: " + line);
+                        System.err.println("ERR: Invalid format in line: " + line);
                     }
                 } catch (NumberFormatException e) {
-                    System.err.println("Error parsing age in line: " + line);
+                    System.err.println("ERR: parsing age in line: " + line);
                 }
             }
             
