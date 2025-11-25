@@ -1,5 +1,7 @@
 import java.util.LinkedList;
 import java.util.Queue;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Collections;
@@ -215,5 +217,49 @@ public class Ride implements RideInterface {
             System.err.println("ERR: exporting ride history: " + e.getMessage());
         }
     }
+
+    public void importRideHistory(String filename) {
+        //use buffered reader
+        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+            String line;
+            int importedCount = 0;
+            
+            while ((line = reader.readLine()) != null) {
+                // Skip the blank lines. Otherwise, an empty object is imported
+                if (line.trim().isEmpty()) continue;
+                
+                try {
+                    // Parse each row of data
+                    String[] parts = line.split(",");
+                    //skip title line
+                    if(parts[0] == "VisitorName") continue;
+
+                    if (parts.length == 5) {  //five attribute
+                        //trim Space
+                        String name = parts[0].trim();
+                        int age = Integer.parseInt(parts[1].trim());
+                        String sex = parts[2].trim();
+                        String ticketType = parts[3].trim();
+                        String travelGroup = parts[4].trim();
+                        
+                        // create Visitor object
+                        Visitor visitor = new Visitor(name, sex, age, travelGroup, ticketType);
+                        rideHistory.add(visitor);
+                        importedCount++;
+                    } else {
+                        System.err.println("Invalid format in line: " + line);
+                    }
+                } catch (NumberFormatException e) {
+                    System.err.println("Error parsing age in line: " + line);
+                }
+            }
+            
+            System.out.println("Successfully imported " + importedCount + " visitors from " + filename);
+            
+        } catch (IOException e) {
+            System.err.println("ERR: importing ride history: " + e.getMessage());
+        }
+    }
+
 
 }
