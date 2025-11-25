@@ -7,7 +7,8 @@ public class AssignmentTwo {
         //assignmentTwo.partFourA();
         // assignmentTwo.partFourB();
         // assignmentTwo.partFive();
-        assignmentTwo.partSix();
+        // assignmentTwo.partSix();
+        assignmentTwo.partSeven();
     }
 
     public void partThree() {
@@ -185,6 +186,10 @@ public class AssignmentTwo {
     }
 
     public void partSeven() {
+        Employee operator = new Employee("test", 48, "male", "005", "Ride Operator");
+        Ride testRide = new Ride(operator, true,"Roller Coaster", 3);
+        
+        testRide.importRideHistory("ride_history_Roller Coaster.txt");
     }
 
 }
