@@ -140,7 +140,7 @@ public class Ride implements RideInterface {
         System.out.println("Total visitor: " + rideHistory.size());
 
         if (rideHistory.isEmpty()) {
-            System.out.println("ERR:"+rideName + " ride history is empty");
+            System.out.println("ERR:" + rideName + " ride history is empty");
             return;
         }
 
@@ -197,19 +197,19 @@ public class Ride implements RideInterface {
     public void exportRideHistory(String filename) {
         try (FileWriter writer = new FileWriter(filename)) {
 
-            //first line for title
+            // first line for title
             String title = "VisitorName, Age, Sex, TicketType, TravelGroup\n";
             writer.write(title);
 
             // one visitor one line
             for (Visitor visitor : rideHistory) {
                 // five attribute
-                String line = visitor.getName() + "," 
-                            + visitor.getAge() + "," 
-                            + visitor.getSex() + ","
-                            + visitor.getTicketType() + ","
-                            + visitor.gettravelGroup() 
-                            +"\n";
+                String line = visitor.getName() + ","
+                        + visitor.getAge() + ","
+                        + visitor.getSex() + ","
+                        + visitor.getTicketType() + ","
+                        + visitor.gettravelGroup()
+                        + "\n";
                 writer.write(line);
             }
             System.out.println("Ride history exported to " + filename);
@@ -219,29 +219,30 @@ public class Ride implements RideInterface {
     }
 
     public void importRideHistory(String filename) {
-        //use buffered reader
+        // use buffered reader
         try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
             String line;
             int importedCount = 0;
-            
+
             while ((line = reader.readLine()) != null) {
                 // Skip the blank lines. Otherwise, an empty object is imported
-                if (line.trim().isEmpty()) continue;
-                
-                try {
-                    // Parse each row of data
-                    String[] parts = line.split(",");
-                    //skip title line
-                    if(parts[0] == "VisitorName") continue;
+                if (line.trim().isEmpty())
+                    continue;
 
-                    if (parts.length == 5) {  //five attribute
-                        //trim Space
+                // Parse each row of data
+                String[] parts = line.split(",");
+                // skip title line
+                if ("VisitorName".equals(parts[0].trim()))
+                    continue;
+                try {
+                    if (parts.length == 5) { // five attribute
+                        // trim Space
                         String name = parts[0].trim();
                         int age = Integer.parseInt(parts[1].trim());
                         String sex = parts[2].trim();
                         String ticketType = parts[3].trim();
                         String travelGroup = parts[4].trim();
-                        
+
                         // create Visitor object
                         Visitor visitor = new Visitor(name, sex, age, travelGroup, ticketType);
                         rideHistory.add(visitor);
@@ -253,13 +254,12 @@ public class Ride implements RideInterface {
                     System.err.println("ERR: parsing age in line: " + line);
                 }
             }
-            
+
             System.out.println("Successfully imported " + importedCount + " visitors from " + filename);
-            
+
         } catch (IOException e) {
             System.err.println("ERR: importing ride history: " + e.getMessage());
         }
     }
-
 
 }
