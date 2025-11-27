@@ -190,6 +190,8 @@ public class AssignmentTwo {
         Ride testRide = new Ride(operator, true,"Roller Coaster", 3);
         
         testRide.importRideHistory("ride_history_Roller Coaster.txt");
+
+        testRide.printRideHistory();
     }
 
 }
